@@ -1,0 +1,15 @@
+<div class="booking-container">
+  <h2>Your Bookings</h2>
+  <button routerLink="/bookings/new">+ New Booking</button>
+
+  @for (b of bookings; track b._id) {
+    <div class="booking-card">
+      <p><strong>{{ b.date | date }}</strong></p>
+      <p>Times: {{ b.times.join(', ') }}</p>
+      <p>Visits: {{ b.numVisits }} | Total: ${{ b.totalCost }}</p>
+      <button (click)="delete(b._id)">Delete</button>
+    </div>
+  } @empty {
+    <p>No bookings found 🐾</p>
+  }
+</div>

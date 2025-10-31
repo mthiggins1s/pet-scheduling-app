@@ -1,0 +1,17 @@
+.booking-container {
+  max-width: 600px;
+  margin: 40px auto;
+}
+.booking-card {
+  border: 1px solid #ddd;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+button {
+  background-color: #2b8a3e;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+}

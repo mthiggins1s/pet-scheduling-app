@@ -1,0 +1,15 @@
+<div class="form-container">
+  <h2>📅 Create Booking</h2>
+  <form (ngSubmit)="onSubmit()">
+    <label>Date:</label>
+    <input type="date" [(ngModel)]="form.date" name="date" required>
+
+    <label>Time Slot:</label>
+    <input type="text" [(ngModel)]="form.times" name="times" placeholder="e.g. 10:00 AM" required>
+
+    <label>Number of Visits:</label>
+    <input type="number" [(ngModel)]="form.numVisits" name="numVisits" min="1" required>
+
+    <button type="submit">Save</button>
+  </form>
+</div>

@@ -1,0 +1,5 @@
+<nav class="navbar">
+  <a routerLink="/bookings">Bookings</a>
+  <span class="spacer"></span>
+  <button *ngIf="auth.isLoggedIn()" (click)="logout()">Logout</button>
+</nav>

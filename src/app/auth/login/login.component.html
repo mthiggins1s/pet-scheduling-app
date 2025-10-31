@@ -1,0 +1,10 @@
+<div class="auth-container">
+  <h2>🐾 Login</h2>
+  <form (ngSubmit)="onSubmit()">
+    <input type="text" [(ngModel)]="form.fullName" name="fullName" placeholder="Full Name" required>
+    <input type="text" [(ngModel)]="form.petName" name="petName" placeholder="Pet Name" required>
+    <input type="password" [(ngModel)]="form.password" name="password" placeholder="Password" required>
+    <button type="submit">Login</button>
+  </form>
+  <p>Don’t have an account? <a routerLink="/register">Register</a></p>
+</div>
