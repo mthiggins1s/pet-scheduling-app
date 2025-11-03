@@ -1,0 +1,44 @@
+<div class="auth-grid">
+  <section class="auth-left">
+    <header class="brand">
+      <span class="paw">🐾</span>
+      <span class="name">Pet Scheduling</span>
+    </header>
+
+    <div class="card">
+      <div class="card-head">
+        <h1 class="h1">{{ title }}</h1>
+        <p class="sub">{{ subtitle }}</p>
+
+        <button class="see-prices" type="button" (click)="openPrices()">
+          See prices
+        </button>
+      </div>
+
+      <div class="card-body">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </section>
+
+  <aside class="auth-right">
+    <div class="slides">
+      <img
+        *ngFor="let src of images; let i = index"
+        [src]="src"
+        [class.active]="i === current()"
+        alt="Pet image {{ i + 1 }}"
+      />
+    </div>
+    <div class="scrim"></div>
+  </aside>
+
+  <div class="modal-backdrop" *ngIf="priceOpen()" (click)="closePrices()"></div>
+  <div class="modal" *ngIf="priceOpen()" role="dialog">
+    <button class="x" (click)="closePrices()">×</button>
+    <h3>Pricing</h3>
+    <p>Each visit is <strong>$15.00</strong>.</p>
+    <p>For details about location or scheduling, please contact Matthew.</p>
+    <button class="close-btn" (click)="closePrices()">Got it</button>
+  </div>
+</div>

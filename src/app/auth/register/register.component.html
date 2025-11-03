@@ -1,7 +1,8 @@
-<div class="auth-container">
-  <h2>🐶 Register</h2>
-
-  <form (ngSubmit)="onSubmit()">
+<app-auth-shell
+  [title]="'Create your account'"
+  [subtitle]="'Book visits and manage your pets with ease'"
+>
+  <form (ngSubmit)="onSubmit()" class="form">
     <input
       type="text"
       [(ngModel)]="form.fullName"
@@ -23,11 +24,12 @@
       placeholder="Password"
       required
     />
-    <button type="submit">Register</button>
-  </form>
 
-  <div class="login-section">
-    <p>Already have an account?</p>
-    <button type="button" (click)="goToLogin()">Back to Login</button>
-  </div>
-</div>
+    <div class="auth-buttons">
+      <button type="button" class="btn-outline" routerLink="/login">
+        Login
+      </button>
+      <button type="submit" class="btn-primary">Register</button>
+    </div>
+  </form>
+</app-auth-shell>

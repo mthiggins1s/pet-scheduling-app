@@ -3,11 +3,12 @@ import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { AuthShellComponent } from '../../core/auth-shell/auth-shell.component';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, AuthShellComponent],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
@@ -17,16 +18,15 @@ export class RegisterComponent {
   constructor(private auth: AuthService, private router: Router) {}
 
   onSubmit() {
-    this.auth.register(this.form).subscribe({
-      next: () => {
-        alert('✅ Account created! Please login.');
-        this.router.navigate(['/login']);
-      },
-      error: (err) => alert(err.error.message)
-    });
-  }
+  this.auth.register(this.form).subscribe({
+    next: () => {
+      const firstName = this.form.fullName.split(' ')[0];
+      this.auth.setUserName(firstName);
+      alert('✅ Account created! Please login.');
+      this.router.navigate(['/login']);
+    },
+    error: (err) => alert(err.error.message || 'Registration failed.'),
+  });
+}
 
-  goToLogin() {
-    this.router.navigate(['/login']);
-  }
 }

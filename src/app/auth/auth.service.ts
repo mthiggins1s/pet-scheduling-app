@@ -38,4 +38,12 @@ export class AuthService {
   getToken() {
     return localStorage.getItem('token');
   }
+
+  setUserName(name: string) {
+  localStorage.setItem('username', name);
+  }
+
+  getUserName(): string | null {
+    return localStorage.getItem('username');
+  }
 }

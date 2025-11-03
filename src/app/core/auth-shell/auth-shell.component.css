@@ -1,0 +1,251 @@
+:root {
+  --bg: #f8f9fa;
+  --card: #ffffff;
+  --muted: #666;
+  --text: #222;
+  --accent: #007bff; /* blue */
+  --accent-2: #0066d4; /* darker blue hover */
+  --ring: rgba(0, 0, 0, 0.08);
+}
+
+
+/* === GRID === */
+.auth-grid {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* equal width for both sides */
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* === LEFT SIDE === */
+.auth-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(24px, 4vw, 48px);
+}
+
+.brand {
+  width: 100%;
+  max-width: 460px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  color: var(--text);
+  font-weight: 600;
+}
+.brand .name {
+  font-size: 1.1rem;
+}
+
+.card {
+  width: 100%;
+  max-width: 460px;
+  background: var(--card);
+  border: 1px solid var(--ring);
+  border-radius: 14px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  padding: clamp(24px, 3.5vw, 36px);
+}
+
+.card-head {
+  position: relative;
+  padding-right: 100px;
+}
+
+.h1 {
+  margin: 0 0 4px;
+  font-size: clamp(28px, 2.4vw, 36px);
+  font-weight: 800;
+}
+
+.sub {
+  margin: 0 0 14px;
+  color: var(--muted);
+}
+
+.see-prices {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: transparent;
+  border: none;
+  color: #007bff; /* now matches blue theme */
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s ease;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.see-prices:hover {
+  text-decoration: underline;
+}
+
+/* === FORM ELEMENTS === */
+.card-body input,
+.card-body button {
+  width: 100%;
+  font-family: inherit;
+}
+
+.card-body input {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 12px 14px;
+  color: var(--text);
+  margin-bottom: 12px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-body input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+  outline: none;
+}
+
+.card-body button[type="submit"] {
+  border: none;
+  border-radius: 6px; /* smaller curve */
+  padding: 8px 12px; /* smaller button size */
+  background: #007bff !important; /* force blue color */
+  color: white;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.card-body button[type="submit"]:hover {
+  background: #0066d4 !important; /* force hover blue */
+  transform: translateY(-1px);
+}
+
+
+/* === RIGHT SIDE === */
+.auth-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  overflow: hidden;
+  padding: clamp(24px, 4vw, 48px);
+}
+
+.slides {
+  position: relative;
+  width: 100%;
+  max-width: 460px; /* same width as card */
+  height: 100%;
+  max-height: 600px; /* match visual height of form */
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.slides img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.slides img.active {
+  opacity: 1;
+}
+
+/* === MODAL === */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  animation: fadeIn 0.15s ease;
+}
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(92vw, 400px);
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 14px;
+  padding: 20px 18px;
+  color: var(--text);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  animation: scaleIn 0.15s ease;
+}
+.modal h3 {
+  margin-top: 0;
+}
+.modal .x {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  border: none;
+  background: transparent;
+  color: #555;
+  font-size: 20px;
+  cursor: pointer;
+}
+.modal .x:hover {
+  color: #000;
+}
+.modal .close-btn {
+  margin-top: 10px;
+  width: 100%;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 12px;
+  cursor: pointer;
+}
+.modal .close-btn:hover {
+  background: var(--accent-2);
+}
+
+/* === ANIMATIONS === */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scaleIn {
+  from { transform: translate(-50%, -50%) scale(0.98); opacity: 0; }
+  to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 980px) {
+  .auth-grid {
+    grid-template-columns: 1fr;
+  }
+  .auth-right {
+    display: none;
+  }
+  .card {
+    max-width: 440px;
+  }
+
+  :host ::ng-deep .card-body button[type="submit"] {
+  background: #007bff !important;
+  border: none !important;
+  border-radius: 6px !important;
+  padding: 8px 12px !important;
+  color: white !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease !important;
+}
+
+:host ::ng-deep .card-body button[type="submit"]:hover {
+  background: #0066d4 !important;
+  transform: translateY(-1px) !important;
+}
+
+}

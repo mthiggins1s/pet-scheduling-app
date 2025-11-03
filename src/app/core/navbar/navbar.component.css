@@ -1,23 +1,76 @@
 .navbar {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  background: #2b8a3e;
-  color: white;
-  padding: 10px 20px;
+  align-items: center;
+  background: #ffffff;
+  padding: 14px 40px;
+  border-bottom: 1px solid #e5e5e5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
-a {
-  color: white;
+
+.logo {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #000;
+  letter-spacing: -0.3px;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.navbar-right a {
+  color: #222;
   text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
 }
+
+.navbar-right a:hover {
+  color: #007bff;
+}
+
+.signup-btn {
+  background: #007bff;
+  color: #fff !important;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.signup-btn:hover {
+  background: #005fcc;
+}
+
 button {
-  background: none;
-  border: 1px solid white;
-  color: white;
-  padding: 5px 10px;
+  border: 1px solid #007bff;
+  background: transparent;
+  color: #007bff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 600;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
+
 button:hover {
-  background: white;
-  color: #2b8a3e;
+  background: #007bff;
+  color: #fff;
 }
+
+.greeting {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #222;
+  padding: 16px 40px;
+  background: #f8f9fa;
+  border: none;
+  box-shadow: none;
+}
+

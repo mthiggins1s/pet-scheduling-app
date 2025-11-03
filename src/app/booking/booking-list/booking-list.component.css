@@ -1,17 +1,89 @@
 .booking-container {
-  max-width: 600px;
-  margin: 40px auto;
+  max-width: 800px;
+  margin: 50px auto;
+  background: #ffffff;
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
-.booking-card {
-  border: 1px solid #ddd;
-  padding: 12px;
-  margin-bottom: 10px;
-  border-radius: 8px;
+
+.booking-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
 }
-button {
-  background-color: #2b8a3e;
+
+.booking-header h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #222;
+  margin: 0;
+}
+
+.new-booking-btn {
+  background: #007bff;
   color: white;
   border: none;
-  padding: 6px 10px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 600;
   cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.new-booking-btn:hover {
+  background: #005fcc;
+}
+
+.booking-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.booking-card {
+  background: #f8f9fa;
+  border: 1px solid #e5e5e5;
+  padding: 18px 20px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.booking-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.booking-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.booking-top h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.delete-btn {
+  border: none;
+  background: transparent;
+  font-size: 1.3rem;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.delete-btn:hover {
+  color: #dc3545;
+}
+
+.empty-state {
+  text-align: center;
+  font-size: 1rem;
+  color: #666;
+  margin-top: 30px;
 }

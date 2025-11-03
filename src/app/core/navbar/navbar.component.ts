@@ -14,6 +14,7 @@ export class NavbarComponent {
   constructor(public auth: AuthService, private router: Router) {}
 
   logout() {
-    this.auth.logout();
+  this.auth.logout();
+  localStorage.removeItem('username');
   }
 }

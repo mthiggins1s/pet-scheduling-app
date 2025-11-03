@@ -1,5 +1,18 @@
 <nav class="navbar">
-  <a routerLink="/bookings">Bookings</a>
-  <span class="spacer"></span>
-  <button *ngIf="auth.isLoggedIn()" (click)="logout()">Logout</button>
+  <div class="navbar-left">
+    <span class="logo">🐾 Pet Scheduling</span>
+  </div>
+
+  <div class="navbar-right">
+    <a routerLink="/bookings" *ngIf="auth.isLoggedIn()">Bookings</a>
+    <a routerLink="/login" *ngIf="!auth.isLoggedIn()">Login</a>
+    <a routerLink="/register" *ngIf="!auth.isLoggedIn()" class="signup-btn"
+      >Sign Up</a
+    >
+    <button *ngIf="auth.isLoggedIn()" (click)="logout()">Logout</button>
+  </div>
 </nav>
+
+<div *ngIf="auth.isLoggedIn()" class="greeting">
+  Hello, {{ auth.getUserName() || "User" }} 👋
+</div>

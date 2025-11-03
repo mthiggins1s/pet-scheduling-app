@@ -1,15 +1,24 @@
 <div class="booking-container">
-  <h2>Your Bookings</h2>
-  <button routerLink="/bookings/new">+ New Booking</button>
+  <div class="booking-header">
+    <h2>Your Bookings</h2>
+    <button routerLink="/bookings/new" class="new-booking-btn">
+      + New Booking
+    </button>
+  </div>
 
-  @for (b of bookings; track b._id) {
+  <div class="booking-grid">
+    @for (b of bookings; track b._id) {
     <div class="booking-card">
-      <p><strong>{{ b.date | date }}</strong></p>
-      <p>Times: {{ b.times.join(', ') }}</p>
-      <p>Visits: {{ b.numVisits }} | Total: ${{ b.totalCost }}</p>
-      <button (click)="delete(b._id)">Delete</button>
+      <div class="booking-top">
+        <h3>{{ b.date | date : "fullDate" }}</h3>
+        <button class="delete-btn" (click)="delete(b._id)">×</button>
+      </div>
+      <p><strong>Times:</strong> {{ b.times.join(", ") }}</p>
+      <p><strong>Visits:</strong> {{ b.numVisits }}</p>
+      <p><strong>Total:</strong> ${{ b.totalCost }}</p>
     </div>
-  } @empty {
-    <p>No bookings found 🐾</p>
-  }
+    } @empty {
+    <p class="empty-state">No bookings found 🐾</p>
+    }
+  </div>
 </div>
