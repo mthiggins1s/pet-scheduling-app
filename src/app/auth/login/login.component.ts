@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AuthShellComponent } from '../../core/auth-shell/auth-shell.component';
@@ -8,7 +8,7 @@ import { AuthShellComponent } from '../../core/auth-shell/auth-shell.component';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, CommonModule, AuthShellComponent],
+  imports: [FormsModule, CommonModule, AuthShellComponent, RouterModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })

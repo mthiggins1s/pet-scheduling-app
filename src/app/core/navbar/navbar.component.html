@@ -4,15 +4,18 @@
   </div>
 
   <div class="navbar-right">
-    <a routerLink="/bookings" *ngIf="auth.isLoggedIn()">Bookings</a>
-    <a routerLink="/login" *ngIf="!auth.isLoggedIn()">Login</a>
-    <a routerLink="/register" *ngIf="!auth.isLoggedIn()" class="signup-btn"
-      >Sign Up</a
-    >
-    <button *ngIf="auth.isLoggedIn()" (click)="logout()">Logout</button>
+    @if (auth.isLoggedIn()) {
+      <a routerLink="/bookings">Bookings</a>
+      <button (click)="logout()">Logout</button>
+    } @else {
+      <a routerLink="/login">Login</a>
+      <a routerLink="/register" class="signup-btn">Sign Up</a>
+    }
   </div>
 </nav>
 
-<div *ngIf="auth.isLoggedIn()" class="greeting">
-  Hello, {{ auth.getUserName() || "User" }} 👋
-</div>
+@if (auth.isLoggedIn()) {
+  <div class="greeting">
+    Hello, {{ auth.getUserName() || "User" }} 👋
+  </div>
+}
