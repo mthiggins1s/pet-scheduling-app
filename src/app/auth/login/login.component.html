@@ -1,35 +1,11 @@
 <app-auth-shell
-  [title]="'Welcome back'"
+  title="Welcome back"
   [subtitle]="'Log in to manage your pet visits'"
 >
-  <form (ngSubmit)="onSubmit()" class="form">
-    <input
-      type="text"
-      [(ngModel)]="form.fullName"
-      name="fullName"
-      placeholder="Full Name"
-      required
-    />
-    <input
-      type="text"
-      [(ngModel)]="form.petName"
-      name="petName"
-      placeholder="Pet Name"
-      required
-    />
-    <input
-      type="password"
-      [(ngModel)]="form.password"
-      name="password"
-      placeholder="Password"
-      required
-    />
-
-    <div class="auth-buttons">
-      <button type="button" class="btn-outline" routerLink="/register">
-        Register
-      </button>
-      <button type="submit" class="btn-primary">Login</button>
-    </div>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <input formControlName="username" placeholder="Your name" />
+    <input formControlName="petName" placeholder="Your pet’s name" />
+    <input formControlName="password" type="password" placeholder="Password" />
+    <button type="submit" [disabled]="loading">Login</button>
   </form>
 </app-auth-shell>

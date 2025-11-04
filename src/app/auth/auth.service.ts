@@ -14,12 +14,15 @@ export class AuthService {
     if (token) this.isLoggedIn.set(true);
   }
 
-  register(data: any) {
-    return this.http.post(`${this.baseUrl}/register`, data);
-  }
+  register(username: string, petName: string, password: string) {
+  return this.http.post(`${this.baseUrl}/register`, { username, petName, password });
+}
 
   login(credentials: any) {
-    return this.http.post<{ token: string; user: any }>(`${this.baseUrl}/login`, credentials);
+    return this.http.post<{ token: string; user: any }>(
+      `${this.baseUrl}/login`,
+      credentials
+    );
   }
 
   saveSession(token: string, role: string) {
@@ -40,7 +43,7 @@ export class AuthService {
   }
 
   setUserName(name: string) {
-  localStorage.setItem('username', name);
+    localStorage.setItem('username', name);
   }
 
   getUserName(): string | null {

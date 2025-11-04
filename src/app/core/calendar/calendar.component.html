@@ -1,0 +1,25 @@
+<div class="calendar">
+  <h2>📅 Google Calendar</h2>
+
+  <div class="calendar-actions">
+    <button (click)="connectGoogle()">🔗 Connect Google Calendar</button>
+    <button (click)="createEvent()">➕ Create Test Event</button>
+  </div>
+
+  @if (loading) {
+    <div class="loading">Loading events...</div>
+  } @else {
+    @if (events.length > 0) {
+      <ul class="event-list">
+        @for (event of events; track event.id) {
+          <li>
+            <strong>{{ event.summary }}</strong> —
+            {{ event.start?.dateTime || event.start?.date }}
+          </li>
+        }
+      </ul>
+    } @else {
+      <p>No events found.</p>
+    }
+  }
+</div>

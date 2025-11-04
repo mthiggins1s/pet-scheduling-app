@@ -1,35 +1,30 @@
 <app-auth-shell
-  [title]="'Create your account'"
+  title="Create your account"
   [subtitle]="'Book visits and manage your pets with ease'"
 >
-  <form (ngSubmit)="onSubmit()" class="form">
-    <input
-      type="text"
-      [(ngModel)]="form.fullName"
-      name="fullName"
-      placeholder="Full Name"
-      required
-    />
-    <input
-      type="text"
-      [(ngModel)]="form.petName"
-      name="petName"
-      placeholder="Pet Name"
-      required
-    />
-    <input
-      type="password"
-      [(ngModel)]="form.password"
-      name="password"
-      placeholder="Password"
-      required
-    />
-
-    <div class="auth-buttons">
-      <button type="button" class="btn-outline" routerLink="/login">
-        Login
-      </button>
-      <button type="submit" class="btn-primary">Register</button>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <input type="text" formControlName="username" placeholder="Your name" />
     </div>
+
+    <div class="form-group">
+      <input
+        type="text"
+        formControlName="petName"
+        placeholder="Your pet's name"
+      />
+    </div>
+
+    <div class="form-group">
+      <input
+        type="password"
+        formControlName="password"
+        placeholder="Password"
+      />
+    </div>
+
+    <button type="submit" [disabled]="loading">
+      {{ loading ? "Registering..." : "Register" }}
+    </button>
   </form>
 </app-auth-shell>

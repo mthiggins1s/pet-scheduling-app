@@ -1,0 +1,44 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background: #2c2c2c;
+  color: #fff;
+  border-bottom: 2px solid #ffcb6b;
+}
+
+.navbar-right a, .navbar-right button {
+  margin-left: 1rem;
+  color: #ffcb6b;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.navbar-right a:hover, .navbar-right button:hover {
+  text-decoration: underline;
+}
+
+.calendar {
+  padding: 1.5rem;
+}
+
+.event-list {
+  list-style: none;
+  padding: 0;
+}
+
+.event-list li {
+  margin-bottom: 0.5rem;
+}
+
+.calendar-actions {
+  margin-bottom: 1rem;
+}
+
+.loading {
+  font-style: italic;
+}
